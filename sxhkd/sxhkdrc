@@ -55,7 +55,7 @@ super + {j,k}
 	xdotool getactivewindow windowmove --relative -- 0 {20,-20}
 
 # Switch to a desktop
-super + shift + {a,z,e,r,t}
+super + ctrl + {a,z,e,r,t}
 	bspc desktop -f {1,2,3,4,5}
 
 # Switch a window to a desktop

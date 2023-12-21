@@ -1,0 +1,10 @@
+* {
+  background:                 #061115;
+  background-alt:             #0b161a;
+  border:                     #101b1f;
+  foreground:                 #d9d7d6;
+  accent:                     #78b892;
+
+  text-color:                 @fg;
+  javacafe-blue:              #6791c9;
+}

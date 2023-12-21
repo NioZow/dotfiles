@@ -1,0 +1,5 @@
+#!/bin/sh
+# Enable double borders
+# Dependencies: chwb2 from wmutils/opt
+#
+# Yes, this is stolen from gk.

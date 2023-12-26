@@ -89,4 +89,12 @@ alt + c
 
 # Burpsuite
 alt + b
-    burp
+    export _JAVA_AWT_WM_NONREPARENTING=1; burp
+
+# Ghidra
+alt + g
+	export _JAVA_AWT_WM_NONREPARENTING=1; ghidra
+
+# Sublime text
+alt + s
+	subl

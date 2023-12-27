@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=~/.config/scripts/change_alacritty_font.sh "Cascadia"
+Icon=Alacritty
+Terminal=false
+
+Name=Cascadia4Alacritty
+Comment=Change alacritty font to Cascadia Mono NF

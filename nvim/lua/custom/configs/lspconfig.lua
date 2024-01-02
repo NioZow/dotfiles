@@ -33,4 +33,9 @@ lspconfig.clangd.setup {
     on_attach(client, bufnr)
   end,
   capabilities = capabilities,
+  init_options = {
+	  clangdFileStatus = true
+  },
+  filetypes = { "c", "cpp", "h" },
+  root_dir  = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
 }

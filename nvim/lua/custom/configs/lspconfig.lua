@@ -40,3 +40,17 @@ lspconfig.clangd.setup {
   filetypes = { "c", "cpp", "h" },
   root_dir  = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
 }
+
+lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"rust"},
+  root_dir = util.root_pattern("Cargo.toml"),
+  settings = {
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeatures = true,
+      }
+    }
+  }
+})

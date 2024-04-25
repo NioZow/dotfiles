@@ -4,6 +4,8 @@ end
 
 set fish_greeting
 
+set PATH /usr/local/sbin /usr/sbin /sbin /usr/local/bin /usr/bin /bin /usr/local/games /usr/games /home/noah/.dotnet/tools $HOME/.cargo/bin /home/noah/.local/bin /usr/local/go/bin
+
 function fish_prompt
   
   # Define colors
@@ -16,7 +18,7 @@ function fish_prompt
   set -g directory (echo $PWD |awk "{ gsub(\"$HOME\", \"~\"); print }")
 
   # Git repo
-  set git_branch (git branch -a 2>/dev/null|head -n 1 |sed "s/* //g")
+  set git_branch (git branch -a 2>/dev/null|grep "*" |sed "s/* //g")
 
   # Create the prompt
   if [ $status -eq 0 ]
@@ -29,6 +31,3 @@ function fish_prompt
   echo -n -s -e "\$ "
 
 end
-
-alias clip="xclip -selection clipboard"
-alias c="xclip -selection clipboard"

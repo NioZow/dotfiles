@@ -1,6 +1,5 @@
 ---@type ChadrcConfig
 local M = {}
-M.ui = {theme = 'catppuccin'}
+M.ui = {theme = 'nightfox'}
 M.plugins = "custom.plugins"
-M.mappings = require "custom.plugins"
 return M

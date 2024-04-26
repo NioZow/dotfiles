@@ -4,8 +4,6 @@ end
 
 set fish_greeting
 
-set PATH /usr/local/sbin /usr/sbin /sbin /usr/local/bin /usr/bin /bin /usr/local/games /usr/games /home/noah/.dotnet/tools $HOME/.cargo/bin /home/noah/.local/bin /usr/local/go/bin
-
 function fish_prompt
   
   # Define colors
@@ -20,11 +18,18 @@ function fish_prompt
   # Git repo
   set git_branch (git branch -a 2>/dev/null|grep "*" |sed "s/* //g")
 
+  #set nix_shell (echo $IN_NIX_SHELL)
+  if set -q IN_NIX_SHELL
+    set nix_shell "($color_blue""nixshell""$color_reset) "
+  else
+    set nix_shell ""
+  end
+
   # Create the prompt
   if [ $status -eq 0 ]
-    echo "$color_cyan"$USER"$color_reset"@"$color_blue"$hostname"$color_reset":$directory "(""$color_green"$git_branch"$color_reset"")"
+    echo "$nix_shell""$color_cyan"$USER"$color_reset"@"$color_blue"$hostname"$color_reset":$directory "(""$color_green"$git_branch"$color_reset"")"
   else
-    echo "$color_cyan"$USER"$color_reset"@"$color_blue"$hostname"$color_reset":$directory
+    echo "$nix_shell""$color_cyan"$USER"$color_reset"@"$color_blue"$hostname"$color_reset":$directory
   end
 
   # Add a newline and the prompt symbol

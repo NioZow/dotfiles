@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Exec=~/.config/scripts/change_alacritty_font.sh "JetBrains"
-Icon=Alacritty
-Terminal=false
-
-Name=JetBrainsMono4Alacritty
-Comment=Change alacritty font to JetBrainsMono NF

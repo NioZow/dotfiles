@@ -137,6 +137,7 @@
 
       # gnome
       pkgs.gnome3.gnome-tweaks
+      gnome-browser-connector
     ];
   };
 
@@ -173,12 +174,14 @@
     mariadb
     inetutils
     openvpn
+    xclip
+    sshpass
   ];
 
   # programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
-  # 	x86_64-w64-mingw32
-  # ]
+   	# x86_64-w64-mingw32
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

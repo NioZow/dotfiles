@@ -4,6 +4,7 @@ end
 
 set fish_greeting
 alias ls='eza'
+alias vim='nvim'
 
 function fish_prompt
   
@@ -31,5 +32,4 @@ function fish_prompt
 
 end
 
-# Created by `pipx` on 2024-06-21 10:02:35
-set PATH $PATH /home/noah/.local/bin
+set PATH $PATH $HOME/.local/bin /sbin

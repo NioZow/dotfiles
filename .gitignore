@@ -1,0 +1,14 @@
+# ignore everything by default
+*
+
+# files
+!.gitignore
+!README.md
+
+# directories
+!nvim/
+!vim/
+!ideavim/
+!dotfiles/
+!fish/
+!tmux/

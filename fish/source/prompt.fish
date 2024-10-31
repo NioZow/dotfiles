@@ -19,7 +19,7 @@ function fish_prompt
   end
 
   # define @ what will be printed on the terminal
-  set -f prompt_machine (color_text blue "machine")
+  set -f prompt_machine (color_text blue "macbook")
 
   # convert anything like $HOME/dev to ~/dev
   set -f prompt_directory (echo $PWD |awk "{ gsub(\"$HOME\", \"~\"); print }")

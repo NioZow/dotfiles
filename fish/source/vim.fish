@@ -22,6 +22,8 @@ function vi_mode_prompt
   set_color normal
 end
 
+set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
+
 function fish_user_key_bindings
   fish_vi_key_bindings
 
@@ -50,6 +52,10 @@ function fish_user_key_bindings
   # search for a file with preview using ctrl+f
   bind -M normal \cf _fzf_search_directory
   bind -M insert \cf _fzf_search_directory
+
+  # search for a file with preview using ctrl+f
+  bind -M normal \co $_fzf_search_vars_command
+  bind -M insert \co $_fzf_search_vars_command
 end
 
 # remove vi mode prompt to set it manually and customize it

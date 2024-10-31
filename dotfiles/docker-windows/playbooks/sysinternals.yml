@@ -1,0 +1,12 @@
+- name: Install Sysinternals using Chocolatey
+  hosts: win_maldev
+  tasks:
+    - name: Install Chocolatey if not installed
+      win_chocolatey:
+        name: chocolatey
+        state: present
+
+    - name: Install Sysinternals
+      win_chocolatey:
+        name: sysinternals
+        state: present

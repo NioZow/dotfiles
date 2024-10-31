@@ -1,0 +1,12 @@
+- name: Install Firefox using Chocolatey
+  hosts: win_maldev
+  tasks:
+    - name: Install Chocolatey if not installed
+      win_chocolatey:
+        name: chocolatey
+        state: present
+
+    - name: Install Firefox
+      win_chocolatey:
+        name: firefox
+        state: present

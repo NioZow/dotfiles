@@ -1,0 +1,35 @@
+services:
+  windows:
+    image: dockurr/windows-arm
+    container_name: win11-maldev
+    volumes:
+      - /Users/noah/dev/dotfiles/development-env/docker-windows/install:/oem
+      - /Users/noah/VirtualMachines/win11-maldev:/storage
+      - /Users/noah/SharedFolder:/shared
+    environment:
+      VERSION: "win11"
+      LANGUAGE: "English"
+      REGION: "fr-FR"
+      KEYBOARD: "fr-FR"
+      DISK_SIZE: "64G"
+      RAM_SIZE: "8G"
+      CPU_CORES: "2"
+      USERNAME: "dev"
+      PASSWORD: "Password1!"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    stop_grace_period: 2m
+    networks:
+      windows_net:
+        ipv4_address: 10.1.0.5
+
+networks:
+  windows_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.1.0.0/24
+          gateway: 10.1.0.1

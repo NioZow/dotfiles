@@ -1,0 +1,49 @@
+- name: Install x64dbg from GitHub snapshot
+  hosts: win_maldev
+  tasks:
+    - name: Download x64dbg snapshot
+      win_get_url:
+        url: https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2024-07-21_20-36.zip
+        dest: C:\Windows\Temp\snapshot_2024-07-21_20-36.zip
+
+    - name: Ensure x64dbg directory exists
+      win_file:
+        path: C:\Program Files\x64dbg
+        state: directory
+
+    - name: Extract x64dbg snapshot
+      win_unzip:
+        src: C:\Windows\Temp\snapshot_2024-07-21_20-36.zip
+        dest: C:\Program Files\x64dbg
+        creates: C:\Program Files\x64dbg\x64dbg.exe
+
+    - name: Get current PATH environment variable
+      win_shell: |
+        [System.Environment]::GetEnvironmentVariable('PATH', [System.EnvironmentVariableTarget]::Machine)
+      register: current_path
+
+    - name: Append x64dbg to the PATH environment variable
+      win_environment:
+        name: PATH
+        state: present
+        value: "{{ current_path.stdout }};C:\\Program Files\\x64dbg"
+        level: machine
+
+    - name: Create shortcut for x64dbg on the desktop
+      win_shortcut:
+        src: C:\Program Files\x64dbg\x64dbg.exe
+        dest: C:\Users\noah\Desktop\x64dbg.lnk
+        description: x64dbg Debugger
+        icon: C:\Program Files\x64dbg\x64dbg.ico
+
+- name: Install WinDbg using WinGet
+  hosts: win_maldev
+  tasks:
+    - name: Ensure WinGet is available
+      win_shell: |
+        if (-Not (Get-Command winget -ErrorAction SilentlyContinue)) {
+            Write-Error "WinGet is not available on this system."
+        }
+
+    - name: Install WinDbg using WinGet
+      win_shell: winget install Microsoft.WinDbg --accept-source-agreements

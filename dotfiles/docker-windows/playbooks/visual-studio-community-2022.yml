@@ -1,0 +1,17 @@
+- name: Install Visual Studio Community 2022 for C++
+  hosts: win_maldev
+  tasks:
+    - name: Install chocolatey
+      win_chocolatey:
+        name: chocolatey
+        state: present
+
+    - name: Copy Visual Studio Installation Configuration
+      win_copy:
+        src: config/vs_install_config.json
+        dest: C:\vs_install_config.json
+
+    - name: Install Visual Studio Community 2022 with C++ Tools
+      win_chocolatey:
+        name: visualstudio2022community
+        state: present

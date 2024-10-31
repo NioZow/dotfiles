@@ -1,0 +1,32 @@
+- name: Install PE-Bear from GitHub
+  hosts: win_maldev
+  tasks:
+    - name: Download pe-bear
+      win_get_url:
+        url: https://github.com/hasherezade/pe-bear/releases/download/v0.6.7.3/PE-bear_0.6.7.3_x64_win_vs19.zip
+        dest: C:\Windows\Temp\PE-bear_0.6.7.3_x64_win_vs19.zip
+
+    - name: Extract PE-bear
+      win_unzip:
+        src: C:\Windows\Temp\PE-bear_0.6.7.3_x64_win_vs19.zip
+        dest: C:\Program Files\PE-bear\
+        creates: C:\Program Files\PE-bear\
+        delete_archive: yes
+
+    - name: Get current PATH environment variable
+      win_shell: |
+        [System.Environment]::GetEnvironmentVariable('PATH', [System.EnvironmentVariableTarget]::Machine)
+      register: current_path
+
+    - name: Append PE-bear to the PATH environment variable
+      win_environment:
+        name: PATH
+        state: present
+        value: "{{ current_path.stdout }};C:\\Program Files\\PE-bear"
+        level: machine
+
+    - name: Create shortcut for PE-bear on the desktop
+      win_shortcut:
+        src: C:\Program Files\PE-bear\PE-bear.exe
+        dest: C:\Users\noah\Desktop\PE-bear.lnk
+        description: PE-bear

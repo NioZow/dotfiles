@@ -1,4 +1,4 @@
-# TMUX config
+# Fish config
 
 ## Fzf
 

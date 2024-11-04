@@ -5,6 +5,8 @@ fish_add_path -a /opt/homebrew/bin
 fish_add_path -a $HOME/.local/bin
 fish_add_path -a $HOME/.cargo/bin
 
+set -gx HOSTNAME "macbook"
+
 # llvm variables
 set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"

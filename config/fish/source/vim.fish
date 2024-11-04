@@ -56,6 +56,11 @@ function fish_user_key_bindings
   # search for a file with preview using ctrl+f
   bind -M normal \co $_fzf_search_vars_command
   bind -M insert \co $_fzf_search_vars_command
+
+  # docker containers
+  bind -M insert \cd _fzf_search_docker
+  bind \cd _fzf_search_docker
+  bind -M visual \cd _fzf_search_docker
 end
 
 # remove vi mode prompt to set it manually and customize it

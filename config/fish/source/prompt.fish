@@ -1,13 +1,6 @@
 # no greetings when entering fish just a shell
 set fish_greeting
 
-# function to quickly write colored text
-function color_text
-  set_color "$argv[1]"
-  echo -n "$argv[2]"
-  set_color "normal"
-end
-
 # define the fish prompt
 function fish_prompt
   

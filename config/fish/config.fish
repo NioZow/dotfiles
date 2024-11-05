@@ -10,6 +10,9 @@ source "$XDG_CONFIG_HOME/fish/source/alias.fish"
 # vim configuration, do not source if you do not want to use vim
 source "$XDG_CONFIG_HOME/fish/source/vim.fish"
 
+# keybindings uncomment this if you are not using vim in the terminal
+#load_keybindings
+
 # macos personal variables do not source unless you've got the same setup
 source "$XDG_CONFIG_HOME/fish/source/macos.fish"
 

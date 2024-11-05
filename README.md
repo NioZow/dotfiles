@@ -13,5 +13,5 @@ Not all dependencies are listed there, just those that I can remember of.
 
 ### Homebrew (MacOS)
 ```
-brew install fzf fd tmux
+brew install fzf fd tmux eza
 ```
